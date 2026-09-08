@@ -24,6 +24,19 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           python -m pip install buildozer==1.5.0 Cython==0.29.36
 
+      # Buildozer ilk çalışmada kendi Android SDK klasörünü indirir.
+      # Bu başlangıç denemesi, eksik build-tools nedeniyle hata verse bile devam eder.
+      - name: Android SDK'yı başlat
+        run: buildozer android debug || true
+
+      - name: AIDL ve Android build-tools yükle
+        run: |
+          SDK_ROOT="$HOME/.buildozer/android/platform/android-sdk"
+          SDK_MANAGER="$(find "$SDK_ROOT" -type f -name sdkmanager | head -n 1)"
+          test -n "$SDK_MANAGER"
+          yes | "$SDK_MANAGER" --licenses || true
+          "$SDK_MANAGER" "platform-tools" "platforms;android-33" "build-tools;33.0.2"
+
       - name: APK oluştur
         run: buildozer android debug
 
