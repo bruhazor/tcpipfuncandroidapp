@@ -1,6 +1,16 @@
-# TCP/IP Hızlı Gönderim — Yerel Android sürümü
+# TCP/IP for PJLINK — Yerel Android sürümü
 
 Bu sürüm Android'in yerel Java altyapısı ile hazırlandı. Kivy/Buildozer kullanmaz; Android SDK, AIDL ve NDK kaynaklı uzun Python paketleme sorunları yoktur.
+
+## PJLink özellikleri
+
+- Uygulama adı: **TCP/IP for PJLINK**
+- PJLink Class 1 temel komutları: güç, giriş seçimi, AV mute, hata/lamba durumu, cihaz adı, üretici, model ve sınıf sorguları
+- Her komut için **Kopyala** (CR sonlandırıcısı eklenir) ve **Gönder** düğmesi
+- PJLink standart portu olan **4352** otomatik kullanılır
+- Bağlantı başarılı/başarısız bilgisi ve projektörün PJLink yanıtı ekranda gösterilir
+- Parola isteyen projektörlerde PJLink MD5 kimlik doğrulaması desteklenir
+- PJLink sekmesinde minimal projektör illüstrasyonu
 
 ## GitHub üzerinden APK oluşturma
 
